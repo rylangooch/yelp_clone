@@ -1,2 +1,23 @@
+<<<<<<< HEAD
 No restaurants yet
 <a href='#'>Add a restaurant</a>
+=======
+<% if @restaurants.any? %>
+  <% @restaurants.each do |restaurant| %>
+
+    <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+    <h3><%= restaurant.description %></h3>
+    <% restaurant.reviews.each do |review| %>
+    <h3><%= review.thoughts %></h3>
+    <h3><%= review.rating %></h3>
+    <% end %>
+    <h3><%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %></h3>
+    <h3><%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %></h3>
+    <h3><%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %></h3>
+  <% end %>
+<% else %>
+  <h1>No restaurants yet<h1>
+<% end %>
+
+<a href='restaurants/new'>Add a restaurant</a>
+>>>>>>> c38fd22d2e595f409b5b4e3f0c95db55657d489f

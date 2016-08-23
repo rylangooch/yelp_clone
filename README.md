@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<<<<<<< HEAD
+=======
+# yelp_clone
+>>>>>>> c38fd22d2e595f409b5b4e3f0c95db55657d489f
