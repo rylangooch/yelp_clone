@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-         has_many :restaurants
+  has_many :restaurants
 
     def self.from_omniauth(auth)
       where(facebook: auth.facebook, uid: auth.uid).first_or_create do |user|
