@@ -2,38 +2,40 @@ require 'rails_helper'
 require 'web_helpers'
 
 context 'User is logged in' do
-  let!(:user) do
-    User.create(email: 'test@test.com', password: '123456', password_confirmation: '123456')
-  end
+  # let!(:user) do
+  #   User.create(email: 'test@test.com', password: '123456', password_confirmation: '123456')
+  # end
 
-  before do
-    visit '/users/sign_in'
-    fill_in 'Email', with: 'test@test.com'
-    fill_in 'Password', with: '123456'
-    click_button 'Log in'
-  end
+  # sign_up('test@test.com')
+  #
+  # before do
+  #   visit '/users/sign_in'
+  #   fill_in 'Email', with: 'test@test.com'
+  #   fill_in 'Password', with: 'testtest'
+  #   click_button 'Log in'
+  # end
 
-feature 'restaurants' do
-  context 'no restaurants should have been added' do
-    scenario 'should display a prompt to add a restaurant' do
-      visit '/restaurants'
-      expect(page).to have_content 'No restaurants yet'
-      expect(page).to have_link 'Add a restaurant'
+  feature 'restaurants' do
+    context 'no restaurants should have been added' do
+      scenario 'should display a prompt to add a restaurant' do
+        visit '/restaurants'
+        expect(page).to have_content 'No restaurants yet'
+        expect(page).to have_link 'Add a restaurant'
+      end
     end
   end
-end
 
-context 'restaurants have been added' do
-  before do
-    Restaurant.create(name: 'KFC')
-  end
+  context 'restaurants have been added' do
+    before do
+      Restaurant.create(name: 'KFC')
+    end
 
-  scenario 'display restaurants' do
-    visit '/restaurants'
-    expect(page).to have_content('KFC')
-    expect(page).not_to have_content('No restaurants yet')
+    scenario 'display restaurants' do
+      visit '/restaurants'
+      expect(page).to have_content('KFC')
+      expect(page).not_to have_content('No restaurants yet')
+    end
   end
-end
 
   context 'creating restaurants' do
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
@@ -75,6 +77,11 @@ end
     end
 
     scenario 'let a user edit a restaurant' do
+      sign_up('test@test.com')
+      # visit '/users/sign_in'
+      # fill_in 'Email', with: 'test@test.com'
+      # fill_in 'Password', with: 'testtest'
+      # click_button 'Log in'
       visit '/restaurants'
       click_link 'Edit KFC'
       fill_in 'Name', with: 'KFC'
@@ -87,6 +94,7 @@ end
   end
 
   context 'deleting restaurants' do
+
     before do
       @restaurant = Restaurant.create name: 'KFC', description: 'Fatty chicken'
       @restaurant.user_id = 1
