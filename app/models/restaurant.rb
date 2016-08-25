@@ -1,5 +1,7 @@
 class Restaurant < ApplicationRecord
-  has_many :reviews, dependent: :destroy
+  has_many :reviews,
+    -> { extending WithUserAssociationExtension },
+    dependent: :destroy
 
   belongs_to :user, optional: true
 
