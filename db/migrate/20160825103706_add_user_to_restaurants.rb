@@ -1,4 +1,4 @@
-class AddUserToRestaurant < ActiveRecord::Migration[5.0]
+class AddUserToRestaurants < ActiveRecord::Migration[5.0]
   def change
     add_reference :restaurants, :user, foreign_key: true
   end

@@ -3,7 +3,7 @@ class Restaurant < ApplicationRecord
     -> { extending WithUserAssociationExtension },
     dependent: :destroy
 
-  belongs_to :user, optional: true
+  belongs_to :user
 
   validates :name, length: { minimum: 3 }, uniqueness: true
 end
