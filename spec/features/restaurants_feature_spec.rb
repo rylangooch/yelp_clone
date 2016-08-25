@@ -106,8 +106,8 @@ feature 'restaurants' do
         click_link 'Sign out'
         sign_up(email: 'test2@test.com')
         visit '/restaurants'
-        expect(page).not_to have_content 'Edit'
-        expect(page).not_to have_content 'Delete'
+        click_link 'Edit'
+        expect(page).to have_content 'Restaurant does not belong to this user'
       end
     end
 end
