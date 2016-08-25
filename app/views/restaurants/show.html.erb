@@ -1,2 +1,10 @@
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.description %></p>
+
+<% @restaurant.reviews.each do |review| %>
+<h3><%= review.thoughts %></h3>
+Rating:
+<h3><%= review.rating %></h3>
+<p> <%= link_to 'Edit Review', edit_restaurant_review_path(review) %>
+<%= link_to 'Delete Review', restaurant_review_path(review), method: :delete %></p>
+<% end %>
