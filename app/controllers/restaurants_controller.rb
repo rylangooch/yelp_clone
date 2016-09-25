@@ -1,10 +1,6 @@
 class RestaurantsController < ApplicationController
 
   def index
-<<<<<<< HEAD
-    
-  end
-=======
     @restaurants = Restaurant.all
   end
 
@@ -43,6 +39,4 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name, :description)
   end
-
->>>>>>> c38fd22d2e595f409b5b4e3f0c95db55657d489f
 end
