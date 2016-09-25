@@ -1,32 +1,26 @@
 require 'rails_helper'
 
-feature 'restaurants' do
-  context 'no restaurants should have been added' do
-<<<<<<< HEAD
-    scenario 'should display a promt to add a restaurant' do
-=======
-    scenario 'should display a prompt to add a restaurant' do
->>>>>>> c38fd22d2e595f409b5b4e3f0c95db55657d489f
-      visit '/restaurants'
-      expect(page).to have_content 'No restaurants yet'
-      expect(page).to have_link 'Add a restaurant'
+  feature 'restaurants' do
+    context 'no restaurants should have been added' do
+      scenario 'should display a prompt to add a restaurant' do
+        visit '/restaurants'
+        expect(page).to have_content 'No restaurants yet'
+        expect(page).to have_link 'Add a restaurant'
+      end
     end
   end
-end
-<<<<<<< HEAD
-=======
 
-context 'restaurants have been added' do
-  before do
-    Restaurant.create(name: 'KFC')
-  end
+  context 'restaurants have been added' do
+    before do
+      Restaurant.create(name: 'KFC')
+    end
 
-  scenario 'display restaurants' do
-    visit '/restaurants'
-    expect(page).to have_content('KFC')
-    expect(page).not_to have_content('No restaurants yet')
+    scenario 'display restaurants' do
+      visit '/restaurants'
+      expect(page).to have_content('KFC')
+      expect(page).not_to have_content('No restaurants yet')
+    end
   end
-end
 
   context 'creating restaurants' do
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
@@ -76,6 +70,5 @@ end
       expect(page).not_to have_content 'KFC'
       expect(page).to have_content 'Restaurant deleted successfully'
     end
-
   end
->>>>>>> c38fd22d2e595f409b5b4e3f0c95db55657d489f
+
