@@ -15,7 +15,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-<<<<<<< HEAD
+
 
 
 # Created by https://www.gitignore.io/api/macos,rails,ruby
@@ -147,5 +147,3 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
-=======
->>>>>>> c38fd22d2e595f409b5b4e3f0c95db55657d489f
